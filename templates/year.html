@@ -1,0 +1,23 @@
+{#dziedziczenie z podstawowej struktury base #}
+{% extends 'base.html' %}
+{% block title %}Rok{%endblock %}
+{% block content %}
+ {# Jinja2 to zaawansowany system szablonów używany we Flasku do generowania dynamicznych stron HTML. Umożliwia osadzanie kodu Pythona w plikach HTML, co pozwala tworzyć elastyczne i dynamiczne aplikacje. #}
+
+    {#
+        1. {{ }}: Wyrażenia zmiennych - Używane do wstawiania wartości zmiennych do szablonu.
+        To miejsce, w którym chcesz wyświetlić dane (np. tekst, liczby). Oznacza "wstaw tutaj wynik wyrażenia".
+
+        2. {% %}: Logika sterująca - Używane do sterowania przepływem programu (np. warunki, pętle).
+        Te wyrażenia nie generują tekstu bezpośrednio w HTML — one kontrolują, co ma zostać wygenerowane.
+        Oznacza "wykonaj ten kod, ale niczego nie wyświetlaj".
+    #}
+
+    {% if year %}
+         <h1>Rok, {{ year }}</h1>
+    {% else %}
+        <h1>Kolejny rok</h1>
+    {% endif %}
+
+{%endblock %}
+</html>
