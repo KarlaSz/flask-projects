@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 from flask import Flask, render_template
+=======
+from flask import Flask
+>>>>>>> 6b8ce7e4d02900a926a1c907148a6aad17102dfe
 
 #steps
 #install pip install flask and check interpreter
@@ -10,6 +14,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
+<<<<<<< HEAD
     return render_template('main.html')
 
 
@@ -32,11 +37,37 @@ def year(year=None):
 # @app.route('/hej/<name>')
 # def greeting(name):
 #     return f'Cześć {name}'
+=======
+    return 'Nowy rok 2025!'
+
+
+
+
+@app.route('/rok')
+def year():
+    #wielolinijkowy string w pythonie
+    return '''
+        <html>
+        <head><title>Cześć nowy roku 2025!</title><head>
+        <body>
+            <h1>Cześć Tobie</h1>
+            </body>
+            </html>
+    '''
+#wykorzystac podane parametry w naszej app flask
+@app.route('/hej/<name>')
+def greeting(name):
+    return f'Cześć {name}'
+>>>>>>> 6b8ce7e4d02900a926a1c907148a6aad17102dfe
 
 #parametr string lub id liczba np. z danymi id, z takim walidatorem od rauz
 @app.route('/user/<int:id>')
 def info_user(id):
+<<<<<<< HEAD
     return f'Dane użytkownika o id: {id}'
 
 if __name__ == "__main__":
     app.run(debug=True)
+=======
+    return f'Dane użytkownika o id: {id}'
+>>>>>>> 6b8ce7e4d02900a926a1c907148a6aad17102dfe
