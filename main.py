@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from flask import Flask
 
 
 #steps
@@ -14,7 +13,6 @@ app = Flask(__name__)
 def hello():
     return render_template('main.html')
     # return 'Nowy rok 2025!'
-
 
 @app.route('/rok')
 @app.route('/rok/<year>')
@@ -38,19 +36,6 @@ def year(year=None):
 
 
 
-
-
-@app.route('/rok')
-def year():
-    #wielolinijkowy string w pythonie
-    return '''
-        <html>
-        <head><title>Cześć nowy roku 2025!</title><head>
-        <body>
-            <h1>Cześć Tobie</h1>
-            </body>
-            </html>
-    '''
 #wykorzystac podane parametry w naszej app flask
 @app.route('/hej/<name>')
 def greeting(name):
@@ -61,6 +46,3 @@ def greeting(name):
 def info_user(id):
     return f'Dane użytkownika o id: {id}'
 
-if __name__ == "__main__":
-    app.run(debug=True)
-    return f'Dane użytkownika o id: {id}'
