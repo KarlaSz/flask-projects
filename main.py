@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 
 #object to interactions
-db = SQLAlchemy(app)
+db = SQLAlchemy(main)
 
 #class which represent table
 class Task(db.Model):
