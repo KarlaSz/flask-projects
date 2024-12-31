@@ -1,48 +1,30 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
-
-#steps
+#START steps
 #install pip install flask and check interpreter
 # set var env in terminal -> $env:FLASK_APP="main.py"
 #check if exist var env -> echo $env:FLASK_APP
 #flask run
 
 app = Flask(__name__)
+#into configuration my app have to let know where my db is located, engine sqlite - only file name
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 
-@app.route('/')
-def hello():
-    return render_template('main.html')
-    # return 'Nowy rok 2025!'
+#object to interactions
+db = SQLAlchemy(app)
 
-@app.route('/rok')
-@app.route('/rok/<year>')
-def year(year=None):
-    #2 sposob - wbudowana funkcja we flaska gdzie podaje nazwe pliku html szablonu i parametry dodatkowe
-    return render_template('year.html', year=year)
-
-    #1 sposob - wielolinijkowy string w pythonie
-    # return f'''
-    #     <html>
-    #     <head><title>Cześć nowy roku 2025!</title><head>
-    #     <body>
-    #         <h1>Cześć Tobie roku {year}</h1>
-    #         </body>
-    #         </html>
-    # '''
-# #wykorzystac podane parametry w naszej app flask
-# @app.route('/hej/<name>')
-# def greeting(name):
-#     return f'Cześć {name}'
+#class which represent table
+class Task(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
 
 
 
-#wykorzystac podane parametry w naszej app flask
-@app.route('/hej/<name>')
-def greeting(name):
-    return f'Cześć {name}'
-
-#parametr string lub id liczba np. z danymi id, z takim walidatorem od rauz
-@app.route('/user/<int:id>')
-def info_user(id):
-    return f'Dane użytkownika o id: {id}'
-
+#start app
+@app.route('/', methods=['GET', 'POST'])
+def todo():
+    tasks = []
+    if request.method == 'POST':
+        tasks.append(request.form['task'])
+    return render_template('todo.html', tasks=tasks)
