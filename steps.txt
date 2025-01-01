@@ -1,0 +1,42 @@
+#START steps
+#install pip install flask and check interpreter
+# set var env in terminal -> $env:FLASK_APP="app.py"
+#check if exist var env -> echo $env:FLASK_APP
+#flask run
+
+#private
+# if __name__ == '__main__':
+#     print(f"Database URI: {app.config['SQLALCHEMY_DATABASE_URI']}")  # Sprawdź URI bazy danych
+#     with app.app_context():
+#         db.create_all()
+#     app.run(debug=True)
+
+#creating db sqlite
+###dostanie sie do konsoli
+#flask shell
+Cel: Jest to dedykowane polecenie Flask do uruchamiania interaktywnej konsoli Python z automatycznym wczytaniem aplikacji i jej kontekstu.
+
+
+# 1. open python console - flask shell
+# 2. write coments
+# >>> from app import db, Task  # Zaimportowanie obiektów z aplikacji
+# >>> db.create_all()           # Tworzy tabele w bazie danych, jeśli nie istnieją
+
+# >>> new_task = Task(name="Zadanie 1")  # Tworzymy nowe zadanie
+# >>> db.session.add(new_task)           # Dodajemy zadanie do sesji
+# >>> db.session.commit()                # Zatwierdzamy zmiany w bazie danych
+
+# >>> tasks = Task.query.all()  # Pobiera wszystkie zadania z bazy danych
+# >>> print(tasks)
+#exit() #wyjscie z konsoli
+
+#cleaning db
+# W konsoli Python z załadowanym kontekstem aplikacji:
+from app import db, Task
+
+# Znajdź i usuń wszystkie zadania z pustymi nazwami
+Task.query.filter(Task.name == "").delete()
+
+# Zatwierdź zmiany w bazie danych
+db.session.commit()
+

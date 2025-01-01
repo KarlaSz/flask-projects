@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 
 #START steps
 #install pip install flask and check interpreter
-# set var env in terminal -> $env:FLASK_APP="main.py"
+# set var env in terminal -> $env:FLASK_APP="app2.py"
 #check if exist var env -> echo $env:FLASK_APP
 #flask run
 
