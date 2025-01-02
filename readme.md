@@ -1,6 +1,8 @@
 # To-Do List Application
 
+
 ## Overview
+![Screenshot_1](https://github.com/user-attachments/assets/aec48b25-1804-462a-a056-9e75b6f4b3a6)
 
 This project is a simple To-Do List web application built with **Python** and the **Flask** framework. It allows users to create, edit, and delete tasks in a web-based to-do list. The application is styled using **Bootstrap** for responsiveness and uses **Jinja2** templating for rendering dynamic HTML pages.
 
