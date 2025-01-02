@@ -40,3 +40,12 @@ Task.query.filter(Task.name == "").delete()
 # Zatwierdź zmiany w bazie danych
 db.session.commit()
 
+flagi:
+-v ->szczegole info
+-X POST-> jakie typu jest zapytanie
+-H nagłowek headers, jakiego formatu bedzie tresc naszego zapytania
+curl -v -X POST -H 'Content-Type: application/json  http://localhost:5000/api/task
+
+Użycie Invoke-WebRequest
+Invoke-WebRequest -Uri http://localhost:5000/api/task -Method POST -Headers @{ "Content-Type" = "application/json" } -Body '{"name":"Zmyj naczynia"}'
+
